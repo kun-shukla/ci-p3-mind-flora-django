@@ -1,0 +1,548 @@
+/* Custom font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
+
+/* This will override default styling applied by browser */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Use 'scroll-padding-top' property to set the 'anchor point' of page sections targeted by respective page links, so that content is not obscured by fixed navbar.
+
+Use 'scroll-behaviour' property so that when a page link is clicked it 'scrolls' (rather than jumps) to the respective page section  */
+
+html {
+    scroll-padding-top: 99px;
+    scroll-behavior: smooth;
+}
+
+/* Generic styles */
+body {
+    /* Use Montserrate font throughout the site (import via Google Fonts) with Sans Serif as a fall-back font */
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    color: #3f4244;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Fix for Bootstrap related spacing issue */
+.container-fluid,
+.col-12 {
+    padding: 0;
+}
+
+/* Fix for Bootstrap related div overflow issue */
+.row {
+    margin: 0 0;
+}
+
+p,
+label {
+    line-height: 30px;
+    letter-spacing: 1px;
+}
+
+h1,
+h2,
+h4 {
+    line-height: 1.4;
+}
+
+h1,
+#menu li,
+h4 {
+    letter-spacing: 2px;
+}
+
+h2,
+h3 {
+    letter-spacing: 4px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* Start of Header section */
+/* Use high z-index to ensure 'fixed' header does not get hidden behind other page elements while scrolling */
+header {
+    padding: 15px 15px 0;
+    width: 100%;
+    position: fixed;
+    z-index: 9;
+    background-color: #fff;
+    box-shadow: 0 2px 3px #757575;
+}
+
+/* nav menu anchor tags */
+nav a {
+    font-weight: 400;
+    padding: 5px;
+}
+
+nav a:hover {
+    background-color: #d5daea;
+    border-radius: 5px;
+}
+
+header a:hover {
+    text-decoration: none;
+}
+
+#logo {
+    text-transform: uppercase;
+    color: #3f4244;
+    font-size: 1.5em;
+}
+
+#menu {
+    list-style-type: none;
+    margin-top: 0.5rem;
+}
+
+#menu li {
+    letter-spacing: 2px;
+    display: inline;
+    font-size: 90%;
+    padding-right: 10px;
+}
+
+#menu a {
+    color: #3f4244;
+}
+
+/* Override default hover effect color style (applied by Bootstrap's dropdown menu component) for consistency */
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: #d5daea;
+}
+
+/* End of Header section */
+
+/* Start of Main section */
+
+/* Apply Code Institute's Love Running project method to push footer down to bottom of page (using flex grow property). Use 'Margin-top' property to push Main section down so that it is not obscured by fixed navbar */
+main {
+    flex: 1 0 auto;
+    margin-top: 92px;
+}
+
+/* Start of Hero Section */
+#hero-container {
+    position: relative;
+}
+
+#hero-bg-img {
+    background: url("../images/hero-img.webp") no-repeat center center / cover;
+    height: 600px;
+}
+
+/* Use positioning to make text 'overlay' hero bg image  */
+#overlay-text {
+    position: absolute;
+    padding: 0 20px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    bottom: 14%;
+    max-width: 460px;
+}
+
+#overlay-text h4 {
+    color: #f4f1de;
+    padding: 17px;
+    border-radius: 8px;
+    margin: auto;
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+/* End of Hero Section */
+
+/* Start of About Section */
+#about-section {
+    padding: 30px 12.5% 0px;
+    text-align: center;
+}
+
+#about-section p {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+}
+
+.about-sec-cat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.about-sec-cat img {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+
+.about-sec-cat h4 {
+    padding: 5px;
+    margin-top: 1rem;
+    color: #3f4244;
+}
+
+.about-sec-cat h4:hover {
+    background-color: #d5daea;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.about-sec-cat a:hover {
+    text-decoration: none;
+}
+
+/* End of About Section */
+
+/* Start of Categories Content Section */
+.cat-content-wrapper {
+    padding: 20px 12.5% 1px;
+    text-align: center;
+}
+
+/* Target every other category content sub-section (starting from the first one) for an alternating background color to enhance visual appeal  */
+.cat-content-wrapper:nth-child(odd) {
+    /* "Pale blueish-purple" */
+    background-color: #d5daea;
+}
+
+.cat-content-text-wrapper p {
+    max-width: 500px;
+    margin: 0 auto 1rem;
+
+}
+
+/* Create extra spacing before the next cat-content section starts */
+.cat-content-text-wrapper p:last-child {
+    margin-bottom: 2rem;
+}
+
+.cat-content-img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    border-radius: 8px;
+}
+
+/* End of Categories Content Section */
+
+/* End of Main section */
+
+/* Start of Form section */
+#form-section {
+    position: relative;
+    width: 100%;
+}
+
+/* Video form background */
+#form-bg-video {
+    height: 800px;
+    width: 100%;
+    /* Maintain video aspect ratio */
+    object-fit: cover;
+}
+
+/* Use positioning to make form 'overlay' video background */
+#form-overlay {
+    background-color: rgba(243, 213, 165, 0.702);
+    position: absolute;
+    max-width: 300px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    top: 5%;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#form-overlay h2 {
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+label {
+    margin: 0;
+    font-weight: 400;
+}
+
+.text-input {
+    border-radius: 5px;
+    background-color: #f4f1de;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #fff;
+    margin: 5px 0 15px;
+    color: #757575;
+}
+
+/* Override browser 'hover/focus' default styling for input fields */
+.text-input:hover {
+    border-color: #3f4244;
+}
+
+.text-input:focus {
+    outline: none;
+    border: 1px solid #3f4244;
+}
+
+textarea {
+    height: 100px;
+}
+
+#share-btn {
+    padding: 5px 32px;
+    border-radius: 22px;
+    background-color: #f4f1de;
+    color: #3f4244;
+    font-size: 120%;
+    margin: 0 auto;
+    border: none;
+    text-align: center;
+}
+
+#share-btn:hover {
+    background-color: #3f4244;
+    color: #f4f1de;
+}
+
+/* End of Form section */
+
+/* Start of Footer section */
+
+/* Use 'flex' to layout footer icons  */
+#footer-menu {
+    display: flex;
+    list-style-type: none;
+    font-size: 150%;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 28px 0px;
+}
+
+#footer-menu a {
+    color: #3f4244;
+}
+
+/* End of Footer section */
+
+/* Media query: 332px or below (for small mobile phones) */
+@media screen and (max-width: 332px) {
+
+    /* Hero overlay text */
+    #overlay-text h4 {
+        font-size: 1.2rem;
+    }
+
+    #form-overlay {
+        max-width: 250px;
+    }
+
+    #form-overlay h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Media query: 992px or below (for small mobile phones) */
+@media screen and (max-width: 992px) {
+
+    /* Hero overlay text */
+    #overlay-text {
+        bottom: 10%;
+    }
+
+    #overlay-text h4 {
+        background-color: rgba(86, 117, 104, 0.5);
+    }
+}
+
+/* Media query: 576px and up (for larger mobile phones or for mobiles in landscape mode) */
+@media screen and (min-width: 576px) {
+    html {
+        scroll-padding-top: 59px;
+    }
+
+    /* Make nav items appear in same line as logo */
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #menu {
+        margin-bottom: 0;
+    }
+
+    main {
+        margin-top: 57px;
+    }
+
+    /* Make form width wider for larger screen area*/
+    #form-overlay {
+        max-width: 450px;
+        margin-bottom: 30px;
+    }
+}
+
+/* Media query: 768px and up (tablets) */
+@media screen and (min-width: 768px) {
+    html {
+        scroll-padding-top: 65px;
+    }
+
+    main {
+        margin-top: 64px;
+    }
+
+    #logo {
+        padding-left: 20px;
+        font-size: 1.8em;
+    }
+
+    #menu {
+        margin-top: 13px;
+    }
+
+    #menu li {
+        padding-right: 20px;
+        font-size: 100%;
+    }
+
+    /* Make About section circular images appear larger */
+    .about-sec-cat img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Media query: 992px and up (laptops) */
+@media screen and (min-width: 992px) {
+    html {
+        scroll-padding-top: 70px;
+    }
+
+    #logo {
+        font-size: 2em;
+    }
+
+    #menu li {
+        padding-right: 40px;
+        font-size: 125%;
+    }
+
+    /* Hero overlay text */
+    #overlay-text {
+        max-width: 550px;
+    }
+
+    #overlay-text h4 {
+        font-size: 1.7rem;
+    }
+
+    .about-sec-cat img {
+        width: 150px;
+        height: 150px;
+        margin-top: 0.5rem;
+    }
+
+    /* Categories content layout change */
+    .cat-content-flex-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .cat-content-wrapper {
+        padding: 20px 0 1px;
+    }
+
+    .cat-content-img {
+        margin: 50px;
+        height: 350px;
+        width: 350px;
+    }
+
+    .cat-content-img-wrapper {
+        align-self: center;
+    }
+
+    .cat-content-wrapper .col-12 {
+        padding: 0 15%;
+    }
+
+    .cat-content-text-wrapper {
+        margin: 50px;
+        align-self: center;
+    }
+
+    /* Select every other category content sub-section and reverse order of image and corresponding text for visual appeal */
+    .cat-content-wrapper:nth-child(even) .cat-content-img-wrapper {
+        order: 2;
+    }
+
+    .cat-content-wrapper:nth-child(even) .cat-content-text-wrapper {
+        order: 1;
+    }
+
+    /* End of Categories content layout change */
+}
+
+/* Media query: 1200px and up (larger screens/desktops) */
+@media screen and (min-width: 1200px) {
+    html {
+        scroll-padding-top: 81px;
+    }
+
+    #logo {
+        padding-left: 60px;
+        font-size: 2.5em;
+    }
+
+    #menu li {
+        padding-right: 60px;
+        font-size: 150%;
+    }
+
+    /* Hero overlay text */
+    #overlay-text {
+        max-width: 600px;
+        bottom: 10%;
+    }
+
+    #overlay-text h4 {
+        font-size: 1.9rem;
+    }
+
+    .about-sec-cat img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .cat-content-flex-container {
+        margin-bottom: 30px;
+    }
+
+    .cat-content-img {
+        height: 400px;
+        width: 400px;
+    }
+}
+
+/* Media query: 1440px and up (larger screens/desktops) */
+@media screen and (min-width: 1440px) {
+    #overlay-text h4 {
+        background-color: rgba(86, 117, 104, 0.5);
+    }
+}

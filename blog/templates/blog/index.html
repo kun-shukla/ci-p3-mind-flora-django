@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- index.html content starts here -->
+
+<!-- Start of Hero image section -->
+<div class="row">
+    <div class="col-12">
+        <section id="hero-container">
+            <div id="hero-bg-img"></div>
+            <div id="overlay-text">
+                <h4>
+                    Step into nature to restore deep mental calm
+                </h4>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- End of Hero image section -->
+
+<!-- Start of About section -->
+<section id="about-section">
+    <div class="row">
+        <div class="col-12">
+            <h2 id="about" class="uppercase">About Mind Flora</h2>
+            <hr>
+            <p>Welcome to Mind Flora, your journey to inner peace starts here. Explore our handpicked selection
+                of tranquil escapes across the UK. You can also share your own cherished spots and help others
+                unearth the
+                therapeutic power of nature across the breathtaking landscapes of the UK. Select a category
+                below and join us in celebrating nature’s healing embrace…</p>
+        </div>
+    </div>
+    <!-- About section circular category images -->
+    <div id="about-sec-cats-wrapper" class="row">
+        <!-- Use Bootstrap classes to create responsive grid format across mobile and larger screen devices -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="about-sec-cat">
+                <a href="#mountains">
+                    <img src="{% static 'images/about-sec-cat-img-mountain.webp' %}" alt="Mountains peaks">
+                </a>
+                <a href="#mountains">
+                    <h4>Mountains</h4>
+                </a>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="about-sec-cat">
+                <a href="#coasts">
+                    <img src="{% static 'images/about-sec-cat-img-coast.webp' %}" alt="A coast line">
+                </a>
+                <a href="#coasts">
+                    <h4>Coasts</h4>
+                </a>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="about-sec-cat">
+                <a href="#lakes">
+                    <img src="{% static 'images/about-sec-cat-img-lake.webp' %}" alt="A lake with purple sky">
+                </a>
+                <a href="#lakes">
+                    <h4>Lakes</h4>
+                </a>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="about-sec-cat">
+                <a href="#forests">
+                    <img src="{% static 'images/about-sec-cat-img-forest.webp' %}" alt="A forest with tall trees">
+                </a>
+                <a href="#forests">
+                    <h4>Forests</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- End of About section circular category images -->
+</section>
+<!-- End About section -->
+
+
+<section id="cats-content-section">
+    {% for post in post_list %}
+    <div class="cat-content-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 id="mountains">{{ post.category }}</h2>
+                <hr>
+            </div>
+        </div>
+        <!-- Use a combination of 'flex' and custom media queries to make layout responsive across various screen sizes (repeated across all categories)-->
+        <div class="cat-content-flex-container">
+            <div class="cat-content-img-wrapper">
+                <img class="cat-content-img" src="{% static 'images/cats-content-sec-forest.webp' %}"
+                    alt="Hikers climbing up Scafell Pike">
+            </div>
+            <div class="cat-content-text-wrapper">
+                <h4>{{ post.title }}</h4>
+                <hr>
+                {{ post.content | safe }}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<!-- index.html content ends here -->
+{% endblock %}
