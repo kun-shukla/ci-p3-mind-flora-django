@@ -1,10 +1,27 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.views import generic
-from .models import Post
+# from django.views import generic
+from .models import Post, UserRecommendedDestination
+from .forms import ShareDiscoveryForm
 
 
 # Create your views here.
-class PostList(generic.ListView):
-    queryset = Post.objects.filter(status=1)
-    template_name = "blog/index.html"
+
+def post_list(request):
+    post_list = Post.objects.filter(status=1)
+    if request.method == "POST":
+        share_form = ShareDiscoveryForm(data=request.POST)
+        if share_form.is_valid():
+            share_form.save()
+            
+    share_form = ShareDiscoveryForm()
+
+    return render(
+        request,
+        "blog/index.html",
+        {
+            "post_list": post_list,
+            "share_form": share_form,
+        },
+    )
+
+

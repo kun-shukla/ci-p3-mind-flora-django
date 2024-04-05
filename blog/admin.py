@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Post, Comment
+from .models import Post, Comment, UserRecommendedDestination
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
@@ -13,6 +13,11 @@ class PostAdmin(SummernoteModelAdmin):
     list_filter = ('status','category','created_on')
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
+
+@admin.register(UserRecommendedDestination)
+class UserRecommendedDestinationAdmin(admin.ModelAdmin):
+
+    list_display = ('dest_title', 'read',)
 
 # Register your models here.
 admin.site.register(Comment)

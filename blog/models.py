@@ -45,3 +45,14 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
+
+class UserRecommendedDestination(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    category = models.CharField(max_length=50)
+    dest_title = models.CharField(max_length=200)
+    description = models.TextField()
+    read = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Travel destination recommended by {self.name}"
