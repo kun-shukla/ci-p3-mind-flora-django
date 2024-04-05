@@ -24,17 +24,14 @@
 <section id="about-section">
     <div class="row">
         <div class="col-12">
-            <h2 id="about" class="uppercase">About Mind Flora</h2>
+            <h2 id="about" class="uppercase">{{ about.title }}</h2>
             <hr>
-            <p>Welcome to Mind Flora, your journey to inner peace starts here. Explore our handpicked selection
-                of tranquil escapes across the UK. You can also share your own cherished spots and help others
-                unearth the
-                therapeutic power of nature across the breathtaking landscapes of the UK. Select a category
-                below and join us in celebrating nature’s healing embrace…</p>
+            {{ about.content | safe }}
         </div>
     </div>
     <!-- About section circular category images -->
     <div id="about-sec-cats-wrapper" class="row">
+        {% for img in about_sec_imgs %}
         <!-- Use Bootstrap classes to create responsive grid format across mobile and larger screen devices -->
         <div class="col-12 col-sm-6 col-lg-3">
             <div class="about-sec-cat">
@@ -42,41 +39,13 @@
                     <img src="{% static 'images/about-sec-cat-img-mountain.webp' %}" alt="Mountains peaks">
                 </a>
                 <a href="#mountains">
-                    <h4>Mountains</h4>
+                    <h4>{{ img.title }}</h4>
                 </a>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="about-sec-cat">
-                <a href="#coasts">
-                    <img src="{% static 'images/about-sec-cat-img-coast.webp' %}" alt="A coast line">
-                </a>
-                <a href="#coasts">
-                    <h4>Coasts</h4>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="about-sec-cat">
-                <a href="#lakes">
-                    <img src="{% static 'images/about-sec-cat-img-lake.webp' %}" alt="A lake with purple sky">
-                </a>
-                <a href="#lakes">
-                    <h4>Lakes</h4>
-                </a>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="about-sec-cat">
-                <a href="#forests">
-                    <img src="{% static 'images/about-sec-cat-img-forest.webp' %}" alt="A forest with tall trees">
-                </a>
-                <a href="#forests">
-                    <h4>Forests</h4>
-                </a>
-            </div>
-        </div>
+        {% endfor %}
     </div>
+        
     <!-- End of About section circular category images -->
 </section>
 <!-- End About section -->
