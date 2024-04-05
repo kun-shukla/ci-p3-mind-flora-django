@@ -17,7 +17,7 @@ class PostAdmin(SummernoteModelAdmin):
 @admin.register(UserRecommendedDestination)
 class UserRecommendedDestinationAdmin(admin.ModelAdmin):
 
-    list_display = ('dest_title', 'read',)
+    list_display = ('destination', 'read',)
 
 # Register your models here.
 admin.site.register(Comment)

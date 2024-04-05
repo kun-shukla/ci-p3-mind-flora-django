@@ -278,7 +278,7 @@ label {
     font-weight: 400;
 }
 
-.text-input {
+#form-overlay input, textarea, select {
     border-radius: 5px;
     background-color: #f4f1de;
     width: 100%;
@@ -288,12 +288,13 @@ label {
     color: #757575;
 }
 
+
 /* Override browser 'hover/focus' default styling for input fields */
-.text-input:hover {
+#form-overlay input:hover, textarea:hover {
     border-color: #3f4244;
 }
 
-.text-input:focus {
+#form-overlay input:focus, textarea:focus, select:focus {
     outline: none;
     border: 1px solid #3f4244;
 }

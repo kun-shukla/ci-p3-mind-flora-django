@@ -112,14 +112,13 @@
  <section id="form-section">
     <!-- Make video bg auto play, silently on loop -->
     <video id="form-bg-video" muted="muted" loop playsinline autoplay>
-        <source src="assets/videos/form-sec-bg-video.mp4" type="video/mp4">
+        <source src="{% static 'videos/form-sec-bg-video.mp4' %}" type="video/mp4">
     </video>
-    <form id="form-overlay" method="POST" target="_blank"
-        aria-label="share a discovery">
+    <form id="form-overlay" method="POST" aria-label="share a discovery">
         <h2>Share a Discovery</h2>
         {{ share_form }}
         {% csrf_token %}
-        <input type="submit" id="share-btn" value="Share" aria-label="Submit Form">
+        <button type="submit" id="share-btn" aria-label="Submit Form">Share</button>
     </form>
 </section>
 <!-- End of 'Form section'-->
