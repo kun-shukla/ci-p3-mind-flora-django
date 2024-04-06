@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Post, Comment, About, AboutSectionNavImage, UserRecommendedDestination
+from .models import Post, Comment, About, AboutSectionNavImage, UserRecommendedDestination, ShareDiscoveryFormBgVid
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
@@ -26,3 +26,4 @@ class UserRecommendedDestinationAdmin(admin.ModelAdmin):
 # Register your models here.
 admin.site.register(Comment)
 admin.site.register(AboutSectionNavImage)
+admin.site.register(ShareDiscoveryFormBgVid)

@@ -70,6 +70,10 @@ class AboutSectionNavImage(models.Model):
     def __str__(self):
         return self.title
 
+class ShareDiscoveryFormBgVid(models.Model):
+    featured_video = CloudinaryField('image', default='placeholder')
+   
+
 class UserRecommendedDestination(models.Model):
     full_Name = models.CharField(max_length=200)
     email = models.EmailField()
