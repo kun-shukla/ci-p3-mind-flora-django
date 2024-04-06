@@ -31,15 +31,19 @@
     </div>
     <!-- About section circular category images -->
     <div id="about-sec-cats-wrapper" class="row">
-        {% for img in about_sec_imgs %}
+        {% for about_sec_img in about_sec_imgs %}
         <!-- Use Bootstrap classes to create responsive grid format across mobile and larger screen devices -->
         <div class="col-12 col-sm-6 col-lg-3">
             <div class="about-sec-cat">
                 <a href="#mountains">
-                    <img src="{% static 'images/about-sec-cat-img-mountain.webp' %}" alt="Mountains peaks">
+                    {% if "placeholder" in about_sec_img.featured_image.url %}
+                    <img src="{% static 'images/about-default.webp' %}" alt="placeholder image">
+                    {% else %}
+                    <img src=" {{ about_sec_img.featured_image.url }}" alt="{{ about_sec_img.title }}">
+                    {% endif %}
                 </a>
                 <a href="#mountains">
-                    <h4>{{ img.title }}</h4>
+                    <h4>{{ about_sec_img.title }}</h4>
                 </a>
             </div>
         </div>
