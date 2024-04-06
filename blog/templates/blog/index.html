@@ -63,8 +63,13 @@
         <!-- Use a combination of 'flex' and custom media queries to make layout responsive across various screen sizes (repeated across all categories)-->
         <div class="cat-content-flex-container">
             <div class="cat-content-img-wrapper">
-                <img class="cat-content-img" src="{% static 'images/cats-content-sec-forest.webp' %}"
-                    alt="Hikers climbing up Scafell Pike">
+                {% if "placeholder" in post.featured_image.url %}
+  <img class="cat-content-img" src="{% static 'images/default.webp' %}"
+    alt="placeholder image">
+  {% else %}
+  <img class="cat-content-img" src=" {{ post.featured_image.url }}"
+    alt="{{ post.title }}">
+  {% endif %}
             </div>
             <div class="cat-content-text-wrapper">
                 <h4>{{ post.title }}</h4>
