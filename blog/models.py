@@ -71,7 +71,7 @@ class AboutSectionNavImage(models.Model):
         return self.title
 
 class ShareDiscoveryFormBgVid(models.Model):
-    featured_video = CloudinaryField('image', default='placeholder')
+    featured_video = CloudinaryField('video')
    
 
 class UserRecommendedDestination(models.Model):
