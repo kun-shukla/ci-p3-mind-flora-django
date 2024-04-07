@@ -68,10 +68,14 @@ class AboutSectionNavImage(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.title
+        return f"{self.title}"
 
 class ShareDiscoveryFormBgVid(models.Model):
-    featured_video = CloudinaryField('video')
+    title = models.CharField(max_length=50)
+    featured_video = CloudinaryField('video', resource_type='video')
+
+    def __str__(self):
+        return f"{self.title} video uploaded"
    
 
 class UserRecommendedDestination(models.Model):
