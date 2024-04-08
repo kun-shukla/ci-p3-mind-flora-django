@@ -7,7 +7,7 @@ from .forms import ShareDiscoveryForm
 # Create your views here.
 
 def post_list(request):
-    post_list = Post.objects.filter(status=1).order_by("created_on")
+    post_list = Post.objects.filter(status=1)
     about_sec_imgs = AboutSectionNavImage.objects.all().order_by('created_on')
     about = About.objects.all().order_by('-updated_on').first()
     share_form_bg_vid = ShareDiscoveryFormBgVid.objects.all()

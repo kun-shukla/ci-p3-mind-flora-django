@@ -49,31 +49,30 @@
         </div>
         {% endfor %}
     </div>
-        
+
     <!-- End of About section circular category images -->
 </section>
 <!-- End About section -->
 
- <!-- Start of 'Categories content section'-->
+<!-- Start of 'Categories content section'-->
 <section id="cats-content-section">
-    {% for post in post_list %}
     <div class="cat-content-wrapper">
         <div class="row">
             <div class="col-12">
-                <h2 id="mountains">{{ post.category }}</h2>
+                <h2 id="mountains">Mountains</h2>
                 <hr>
             </div>
         </div>
         <!-- Use a combination of 'flex' and custom media queries to make layout responsive across various screen sizes (repeated across all categories)-->
+        {% for post in post_list %}
+        {% if "Mountains" in post.category %}
         <div class="cat-content-flex-container">
             <div class="cat-content-img-wrapper">
                 {% if "placeholder" in post.featured_image.url %}
-  <img class="cat-content-img" src="{% static 'images/default.webp' %}"
-    alt="placeholder image">
-  {% else %}
-  <img class="cat-content-img" src=" {{ post.featured_image.url }}"
-    alt="{{ post.title }}">
-  {% endif %}
+                <img class="cat-content-img" src="{% static 'images/default.webp' %}" alt="placeholder image">
+                {% else %}
+                <img class="cat-content-img" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+                {% endif %}
             </div>
             <div class="cat-content-text-wrapper">
                 <h4>{{ post.title }}</h4>
@@ -81,18 +80,101 @@
                 {{ post.content | safe }}
             </div>
         </div>
+        {% endif %}
+        {% endfor %}
     </div>
-    {% endfor %}
+    <div class="cat-content-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 id="coasts">Coasts</h2>
+                <hr>
+            </div>
+        </div>
+        <!-- Use a combination of 'flex' and custom media queries to make layout responsive across various screen sizes (repeated across all categories)-->
+        {% for post in post_list %}
+        {% if "Coasts" in post.category %}
+        <div class="cat-content-flex-container">
+            <div class="cat-content-img-wrapper">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="cat-content-img" src="{% static 'images/default.webp' %}" alt="placeholder image">
+                {% else %}
+                <img class="cat-content-img" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+                {% endif %}
+            </div>
+            <div class="cat-content-text-wrapper">
+                <h4>{{ post.title }}</h4>
+                <hr>
+                {{ post.content | safe }}
+            </div>
+
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="cat-content-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 id="lakes">Lakes</h2>
+                <hr>
+            </div>
+        </div>
+        <!-- Use a combination of 'flex' and custom media queries to make layout responsive across various screen sizes (repeated across all categories)-->
+        {% for post in post_list %}
+        {% if "Lakes" in post.category %}
+        <div class="cat-content-flex-container">
+            <div class="cat-content-img-wrapper">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="cat-content-img" src="{% static 'images/default.webp' %}" alt="placeholder image">
+                {% else %}
+                <img class="cat-content-img" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+                {% endif %}
+            </div>
+            <div class="cat-content-text-wrapper">
+                <h4>{{ post.title }}</h4>
+                <hr>
+                {{ post.content | safe }}
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="cat-content-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 id="forests">Forests</h2>
+                <hr>
+            </div>
+        </div>
+        <!-- Use a combination of 'flex' and custom media queries to make layout responsive across various screen sizes (repeated across all categories)-->
+        {% for post in post_list %}
+        {% if "Forests" in post.category %}
+        <div class="cat-content-flex-container">
+            <div class="cat-content-img-wrapper">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="cat-content-img" src="{% static 'images/default.webp' %}" alt="placeholder image">
+                {% else %}
+                <img class="cat-content-img" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+                {% endif %}
+            </div>
+            <div class="cat-content-text-wrapper">
+                <h4>{{ post.title }}</h4>
+                <hr>
+                {{ post.content | safe }}
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
 </section>
 <!-- End of 'Categories content section'-->
 
- <!-- Start of 'Form section'-->
- <section id="form-section">
+<!-- Start of 'Form section'-->
+<section id="form-section">
     {% for video in share_form_bg_vid %}
     <!-- Make video bg auto play, silently on loop -->
     <video id="form-bg-video" muted="muted" loop playsinline autoplay>
         <source src="{{ video.featured_video.url }}" type="video/mp4">
-    {% endfor %}
+        {% endfor %}
     </video>
     <form id="form-overlay" method="POST" aria-label="share a discovery">
         <h2>Share a Discovery</h2>

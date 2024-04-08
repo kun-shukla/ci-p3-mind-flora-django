@@ -9,7 +9,7 @@ class Post(models.Model):
     """
     Stores a single blog post entry related to :model:`auth.User`.
     """
-    category = models.CharField(max_length=50, unique=True)
+    category = models.CharField(max_length=50)
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
@@ -22,7 +22,7 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
         
     class Meta:
-        ordering = ["created_on"]
+        ordering = ["category","created_on"]
 
     def __str__(self):
         """

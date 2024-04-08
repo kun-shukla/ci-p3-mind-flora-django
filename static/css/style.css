@@ -278,7 +278,9 @@ label {
     font-weight: 400;
 }
 
-#form-overlay input, textarea, select {
+#form-overlay input,
+textarea,
+select {
     border-radius: 5px;
     background-color: #f4f1de;
     width: 100%;
@@ -290,11 +292,14 @@ label {
 
 
 /* Override browser 'hover/focus' default styling for input fields */
-#form-overlay input:hover, textarea:hover {
+#form-overlay input:hover,
+textarea:hover {
     border-color: #3f4244;
 }
 
-#form-overlay input:focus, textarea:focus, select:focus {
+#form-overlay input:focus,
+textarea:focus,
+select:focus {
     outline: none;
     border: 1px solid #3f4244;
 }
@@ -489,11 +494,11 @@ textarea {
     }
 
     /* Select every other category content sub-section and reverse order of image and corresponding text for visual appeal */
-    .cat-content-wrapper:nth-child(even) .cat-content-img-wrapper {
+    .cat-content-flex-container:nth-child(even) .cat-content-img-wrapper {
         order: 2;
     }
 
-    .cat-content-wrapper:nth-child(even) .cat-content-text-wrapper {
+    .cat-content-flex-container:nth-child(even) .cat-content-text-wrapper {
         order: 1;
     }
 
