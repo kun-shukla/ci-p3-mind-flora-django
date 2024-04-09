@@ -35,14 +35,14 @@
         <!-- Use Bootstrap classes to create responsive grid format across mobile and larger screen devices -->
         <div class="col-12 col-sm-6 col-lg-3">
             <div class="about-sec-cat">
-                <a href="#mountains">
+                <a href="#{{ about_sec_img.title }}">
                     {% if "placeholder" in about_sec_img.featured_image.url %}
                     <img src="{% static 'images/about-default.webp' %}" alt="placeholder image">
                     {% else %}
                     <img src=" {{ about_sec_img.featured_image.url }}" alt="{{ about_sec_img.title }}">
                     {% endif %}
                 </a>
-                <a href="#mountains">
+                <a href="#{{ about_sec_img.title }}">
                     <h4>{{ about_sec_img.title }}</h4>
                 </a>
             </div>
@@ -75,9 +75,14 @@
                 {% endif %}
             </div>
             <div class="cat-content-text-wrapper">
-                <h4>{{ post.title }}</h4>
-                <hr>
-                {{ post.content | safe }}
+                <a href="{% url 'post_detail' post.slug %}">
+                    <h4>{{ post.title }}</h4>
+                    <hr>
+                    <p>
+                        {{ post.excerpt}}
+                    </p>
+                </a>
+                <a href="{% url 'post_detail' post.slug %}"><button id="explore-btn" aria-label="Open post">Explore</button></a>
             </div>
         </div>
         {% endif %}
@@ -102,11 +107,15 @@
                 {% endif %}
             </div>
             <div class="cat-content-text-wrapper">
-                <h4>{{ post.title }}</h4>
-                <hr>
-                {{ post.content | safe }}
+                <a href="{% url 'post_detail' post.slug %}">
+                    <h4>{{ post.title }}</h4>
+                    <hr>
+                    <p>
+                        {{ post.excerpt}}
+                    </p>
+                </a>
+                <a href="{% url 'post_detail' post.slug %}"><button id="explore-btn" aria-label="Open post">Explore</button></a>
             </div>
-
         </div>
         {% endif %}
         {% endfor %}
@@ -130,9 +139,14 @@
                 {% endif %}
             </div>
             <div class="cat-content-text-wrapper">
-                <h4>{{ post.title }}</h4>
-                <hr>
-                {{ post.content | safe }}
+                <a href="{% url 'post_detail' post.slug %}">
+                    <h4>{{ post.title }}</h4>
+                    <hr>
+                    <p>
+                        {{ post.excerpt}}
+                    </p>
+                </a>
+                <a href="{% url 'post_detail' post.slug %}"><button id="explore-btn" aria-label="Open post">Explore</button></a>
             </div>
         </div>
         {% endif %}
@@ -157,9 +171,14 @@
                 {% endif %}
             </div>
             <div class="cat-content-text-wrapper">
-                <h4>{{ post.title }}</h4>
-                <hr>
-                {{ post.content | safe }}
+                <a href="{% url 'post_detail' post.slug %}">
+                    <h4>{{ post.title }}</h4>
+                    <hr>
+                    <p>
+                        {{ post.excerpt}}
+                    </p>
+                </a>
+                <a href="{% url 'post_detail' post.slug %}"><button id="explore-btn" aria-label="Open post">Explore</button></a>
             </div>
         </div>
         {% endif %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+
+<div class="cat-content-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <h3 id="post-detail-title">{{ post.title }}</h3>
+            <p id="post-detail-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+            <hr>
+        </div>
+    </div>
+    <div class="cat-content-flex-container">
+        <div class="cat-content-img-wrapper">
+            {% if "placeholder" in post.featured_image.url %}
+            <img class="cat-content-img" src="{% static 'images/default.webp' %}" alt="placeholder image">
+            {% else %}
+            <img class="cat-content-img" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+            {% endif %}
+        </div>
+        <div class="cat-content-text-wrapper">
+            {{ post.content | safe }}
+        </div>
+    </div>      
+</div>     
+
+{% endblock content %}

@@ -191,6 +191,7 @@ main {
     padding: 5px;
     margin-top: 1rem;
     color: #3f4244;
+    text-transform: capitalize
 }
 
 .about-sec-cat h4:hover {
@@ -234,6 +235,27 @@ main {
     margin: 1rem 0;
     border-radius: 8px;
 }
+
+.cat-content-text-wrapper a {
+    text-decoration: none;
+    color: #3f4244
+}
+
+#explore-btn {
+    padding: 5px 32px;
+    border-radius: 22px;
+    background-color: #3f4244;
+    color: #f4f1de;
+    font-size: 120%;
+    margin: 0 auto;
+    border: none;
+    text-align: center;
+  }
+  
+  #explore-btn:hover {
+    background-color: #f4f1de;
+    color: #3f4244;
+  }
 
 /* End of Categories Content Section */
 
@@ -345,6 +367,15 @@ textarea {
 }
 
 /* End of Footer section */
+
+/* Start of Post detail page styling */
+
+#post-detail-title {
+    margin-top:40px;
+}
+
+/* End of Post detail page styling */
+
 
 /* Media query: 332px or below (for small mobile phones) */
 @media screen and (max-width: 332px) {
