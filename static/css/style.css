@@ -84,9 +84,28 @@ nav a {
     padding: 5px;
 }
 
+#signup-nav-link {
+    padding-right: 0;
+}
+
+#login-nav-link {
+    padding-left: 0;
+}
+
+.link:hover,
 nav a:hover {
     background-color: #d5daea;
     border-radius: 5px;
+    text-decoration: none;
+    color: #3f4244;
+}
+
+.link {
+    color: #3f4244;
+    text-decoration: none;
+    padding: 5px;
+    font-weight: bold;
+
 }
 
 header a:hover {
@@ -241,7 +260,10 @@ main {
     color: #3f4244
 }
 
-#explore-btn {
+#explore-btn,
+#login-btn,
+#signout-btn,
+#signup-btn {
     padding: 5px 32px;
     border-radius: 22px;
     background-color: #3f4244;
@@ -250,12 +272,15 @@ main {
     margin: 0 auto;
     border: none;
     text-align: center;
-  }
-  
-  #explore-btn:hover {
+}
+
+#explore-btn:hover,
+#login-btn:hover,
+#signout-btn:hover,
+#signup-btn:hover {
     background-color: #f4f1de;
     color: #3f4244;
-  }
+}
 
 /* End of Categories Content Section */
 
@@ -301,8 +326,11 @@ label {
 }
 
 #form-overlay input,
+.signup input,
 textarea,
-select {
+select,
+#id_login,
+#id_password {
     border-radius: 5px;
     background-color: #f4f1de;
     width: 100%;
@@ -315,13 +343,17 @@ select {
 
 /* Override browser 'hover/focus' default styling for input fields */
 #form-overlay input:hover,
-textarea:hover {
+textarea:hover,
+#id_login:hover,
+#id_password:hover {
     border-color: #3f4244;
 }
 
 #form-overlay input:focus,
 textarea:focus,
-select:focus {
+select:focus,
+#id_login:focus,
+#id_password:focus {
     outline: none;
     border: 1px solid #3f4244;
 }
@@ -370,11 +402,15 @@ textarea {
 
 /* Start of Post detail page styling */
 
-#post-detail-title {
-    margin-top:40px;
+#post-detail-title,
+#login-heading,
+#signout-heading,
+#signup-heading {
+    margin-top: 40px;
 }
 
 /* End of Post detail page styling */
+
 
 
 /* Media query: 332px or below (for small mobile phones) */
@@ -405,7 +441,13 @@ textarea {
     #overlay-text h4 {
         background-color: rgba(86, 117, 104, 0.5);
     }
+
+    #explore-btn {
+        margin-bottom: 30px;
+    }
 }
+
+
 
 /* Media query: 576px and up (for larger mobile phones or for mobiles in landscape mode) */
 @media screen and (min-width: 576px) {
@@ -532,6 +574,7 @@ textarea {
     .cat-content-flex-container:nth-child(even) .cat-content-text-wrapper {
         order: 1;
     }
+
 
     /* End of Categories content layout change */
 }
