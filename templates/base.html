@@ -77,6 +77,11 @@
     <!-- Use  Bootstrap class 'container-fluid' (along with 'row' and 'column' classes) for creating a responsive grid layout for the Hero / About sections  -->
 
     <main class="container-fluid">
+        {% if user.is_authenticated %}
+        <p class="m-3 logged-in-msg">
+            You are logged in as {{ user }}
+        </p>
+        {% endif %}
 
         {% block content %}
         <!-- Content Goes here -->

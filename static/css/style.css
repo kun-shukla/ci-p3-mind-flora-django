@@ -411,6 +411,13 @@ textarea {
 
 /* End of Post detail page styling */
 
+.logged-in-msg {
+    text-align: right;
+    line-height: 15px;
+    margin-bottom:8px;
+    letter-spacing: 0;
+}
+
 
 
 /* Media query: 332px or below (for small mobile phones) */
