@@ -39,7 +39,7 @@
         <!-- Start of Navbar -->
         <nav>
             <ul id="menu">
-                <li><a href="#about">About</a></li>
+                <li><a href="{% url 'home' %}#about">About</a></li>
                 <!-- Dropdown menu 'toggle' for 'Discover' sub-menu using Bootstrap classes -->
                 <li class="dropdown">
                     <!-- End of Dropdown menu 'toggle' -->
@@ -47,14 +47,14 @@
                     <a href="" class="dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Discover</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#mountains">Mountains</a>
-                        <a class="dropdown-item" href="#coasts">Coasts</a>
-                        <a class="dropdown-item" href="#lakes">Lakes</a>
-                        <a class="dropdown-item" href="#forests">Forests</a>
+                        <a class="dropdown-item" href="{% url 'home' %}#mountains">Mountains</a>
+                        <a class="dropdown-item" href="{% url 'home' %}#coasts">Coasts</a>
+                        <a class="dropdown-item" href="{% url 'home' %}#lakes">Lakes</a>
+                        <a class="dropdown-item" href="{% url 'home' %}#forests">Forests</a>
                     </div>
                     <!-- End of Dropdown sub-menu-->
                 </li>
-                <li><a href="#form-section">Share</a>
+                <li><a href="{% url 'home' %}#form-section">Share</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li>
