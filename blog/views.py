@@ -15,7 +15,9 @@ def post_list(request):
         share_form = ShareDiscoveryForm(data=request.POST)
         if share_form.is_valid():
             share_form.save()
-            
+            messages.add_message(request, messages.SUCCESS, "Thank you for your contribution! We endeavour to review and respond within 3 working days.")
+
+
     share_form = ShareDiscoveryForm()
 
     return render(
