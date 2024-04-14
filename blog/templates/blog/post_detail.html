@@ -34,34 +34,54 @@
 
   
   <!-- Displaying Comments -->
-<div class="comments-sec-wrapper">
-    <div>
-        <h4 id="comments-heading">Comments:</h4>
-    </div>
-    <div class="comments-card-body">
-        <!-- We want a for loop inside the empty control tags
-          to iterate through each comment in comments -->
-        {% for comment in comments %}
-        <div class="p-2 comments
-          {% if not comment.approved and comment.author == user %} faded
-           {% elif not comment.approved %} d-none{% endif %}">
-            <p class="font-weight-bold">
-                {{ comment.author }}
-                <span class="font-weight-normal">
-                    {{ comment.created_on }}
-                </span> wrote:
-            </p>
-            <div id="comment{{ comment.id }}">
-                {{ comment.body | linebreaks }}
-            </div>
-            {% if not comment.approved and comment.author == user %}
-            <p class="approval">
-                This comment is awaiting approval
-            </p>
-            {% endif %}
+<div id = "comments-sec-flex-container">
+    <div class="comments-display-wrapper">
+        <div>
+            <h4 id="comments-heading">Comments:</h4>
         </div>
-        <!-- Our for loop ends here -->
-        {% endfor %}
+        <div class="comment-body">
+            <!-- We want a for loop inside the empty control tags
+            to iterate through each comment in comments -->
+            {% for comment in comments %}
+            <div class="{% if not comment.approved and comment.author == user %} faded
+            {% elif not comment.approved %} d-none{% endif %}">
+                <p id="comment-info" class="font-weight-bold">
+                    {{ comment.author }}
+                    <span>
+                        {{ comment.created_on }}
+                    </span> wrote:
+                </p>
+                <div id="comment{{ comment.id }}">
+                    {{ comment.body | linebreaks }}
+                </div>
+                {% if not comment.approved and comment.author == user %}
+                <p class="approval">
+                    This comment is awaiting approval
+                </p>
+                {% endif %}
+            </div>
+            <!-- Our for loop ends here -->
+            {% endfor %}
+        </div>
+</div>
+
+<!-- Creating New Comments -->
+    <div class="comment-form-wrapper">
+        <div class="form-body">
+        {% if user.is_authenticated %}
+        <h4>Leave a comment:</h4>
+        <p>Posting as: {{ user.username }}</p>
+        <div id="comment-form-container">
+        <form id="commentForm" method="post">
+            {{ comment_form }}
+            {% csrf_token %}
+            <button id="comment-btn" type="submit">Submit</button>
+        </div>  
+        </form>
+        {% else %}
+        <p>Log in to leave a comment</p>
+        {% endif %}
+        </div>
     </div>
 </div>
 

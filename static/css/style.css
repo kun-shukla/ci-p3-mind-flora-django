@@ -263,7 +263,8 @@ main {
 #explore-btn,
 #login-btn,
 #signout-btn,
-#signup-btn {
+#signup-btn,
+#comment-btn {
     padding: 5px 32px;
     border-radius: 22px;
     background-color: #3f4244;
@@ -277,7 +278,8 @@ main {
 #explore-btn:hover,
 #login-btn:hover,
 #signout-btn:hover,
-#signup-btn:hover {
+#signup-btn:hover,
+#comment-btn:hover {
     background-color: #f4f1de;
     color: #3f4244;
 }
@@ -360,6 +362,7 @@ select:focus,
 
 textarea {
     height: 100px;
+    resize: none;
 }
 
 #share-btn {
@@ -412,10 +415,34 @@ textarea {
 /* End of Post detail page styling */
 
 /* Start of Post detail comments section */
-
-.comments-sec-wrapper, 
+#comments-sec-flex-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+ 
 .comment-count-wrapper {
     padding: 20px 12.5%;
+}
+
+.comment-form-wrapper,
+.comments-display-wrapper {
+    padding: 20px 5%;
+}
+
+.comment-body {
+    max-width:600px;
+}
+
+#comment-info {
+    margin-bottom:0;
+}
+
+#comment-form-container {
+    max-width:450px;
+}
+
+label[for="id_body"] {
+    display:none;
 }
 
 .approval {
@@ -424,10 +451,6 @@ textarea {
 
 .faded {
     color: rgb(172, 175, 175);
-}
-
-.text-font-weight {
-    font-weight: bold;
 }
 
 /* End of Post detail comments section */

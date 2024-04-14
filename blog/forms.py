@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserRecommendedDestination
+from .models import UserRecommendedDestination, Comment
 
 class ShareDiscoveryForm(forms.ModelForm):
     """
@@ -20,4 +20,12 @@ class ShareDiscoveryForm(forms.ModelForm):
             )),
             'destination': forms.TextInput(attrs={'placeholder': 'Destination'}),
             'description': forms.Textarea(attrs={'placeholder': 'Share a brief description of your experience'}),
-        }        
+        }    
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('body',)   
+        widgets = {
+            'body': forms.Textarea(attrs={'placeholder': 'Enter Comment'}),
+        }
