@@ -77,16 +77,32 @@
     <!-- Use  Bootstrap class 'container-fluid' (along with 'row' and 'column' classes) for creating a responsive grid layout for the Hero / About sections  -->
 
     <main class="container-fluid">
+        <!-- displaying Django messages -->
+              <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert alert-success {{ message.tags }} alert-dismissible
+                  fade show" id="msg" role="alert">
+                  {{ message | safe }}
+                  <button type="button" class="close"
+                    data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                {% endfor %}
+              </div>
+          <!-- end of displaying Django messages -->
+
+          <!-- display logged-in username -->
         {% if user.is_authenticated %}
         <p class="m-3 logged-in-msg">
-            You are logged in as {{ user }}
+            Logged in as {{ user }}
         </p>
         {% endif %}
+         <!-- end of display logged-in username -->
 
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
-
     </main>
     <!-- End of Main section -->
 

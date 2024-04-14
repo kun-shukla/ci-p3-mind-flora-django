@@ -462,8 +462,6 @@ label[for="id_body"] {
     letter-spacing: 0;
 }
 
-
-
 /* Media query: 332px or below (for small mobile phones) */
 @media screen and (max-width: 332px) {
 
@@ -479,6 +477,15 @@ label[for="id_body"] {
     #form-overlay h2 {
         font-size: 1.5rem;
     }
+}
+
+/* Media query: 768px or below (for small mobile phones) */
+@media screen and (max-width: 768px) {
+
+    #comments-sec-flex-container {
+        flex-direction: column;
+    }
+
 }
 
 /* Media query: 992px or below (for small mobile phones) */
@@ -669,6 +676,16 @@ label[for="id_body"] {
         height: 400px;
         width: 400px;
     }
+
+    .logged-in-msg {
+        padding-top: 16px;
+    }
+
+    #msg {
+        margin-top: 16px;
+    }
+
+    
 }
 
 /* Media query: 1440px and up (larger screens/desktops) */
