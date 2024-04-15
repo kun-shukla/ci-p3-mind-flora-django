@@ -32,9 +32,9 @@
     <hr>
 </div>
 
-  
-  <!-- Displaying Comments -->
-<div id = "comments-sec-flex-container">
+
+<!-- Displaying Comments -->
+<div id="comments-sec-flex-container">
     <div class="comments-display-wrapper">
         <div>
             <h4 id="comments-heading">Comments:</h4>
@@ -59,30 +59,61 @@
                     This comment is awaiting approval
                 </p>
                 {% endif %}
+                {% if user.is_authenticated and comment.author == user %}
+                <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
+                <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                {% endif %}
             </div>
             <!-- Our for loop ends here -->
             {% endfor %}
         </div>
-</div>
+    </div>
 
-<!-- Creating New Comments -->
+    <!-- Creating New Comments -->
     <div class="comment-form-wrapper">
         <div class="form-body">
-        {% if user.is_authenticated %}
-        <h4>Leave a comment:</h4>
-        <p>Posting as: {{ user.username }}</p>
-        <div id="comment-form-container">
-        <form id="commentForm" method="post">
-            {{ comment_form }}
-            {% csrf_token %}
-            <button id="comment-btn" type="submit">Submit</button>
-        </div>  
-        </form>
-        {% else %}
-        <p>Log in to leave a comment</p>
-        {% endif %}
+            {% if user.is_authenticated %}
+            <h4>Leave a comment:</h4>
+            <p>Posting as: {{ user.username }}</p>
+            <div id="comment-form-container">
+                <form id="commentForm" method="post">
+                    {{ comment_form }}
+                    {% csrf_token %}
+                    <button id="comment-btn" type="submit">Submit</button>
+            </div>
+            </form>
+            {% else %}
+            <p>Log in to leave a comment</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Delete confirmation modal -->
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete your comment?
+                This action cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a id="deleteConfirm" href="#" class="btn
+          btn-danger">Delete</a>
+            </div>
         </div>
     </div>
 </div>
 
 {% endblock content %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}
