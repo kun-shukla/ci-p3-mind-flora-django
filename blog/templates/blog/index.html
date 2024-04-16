@@ -82,7 +82,9 @@
                         {{ post.excerpt}}
                     </p>
                 </a>
-                <a href="{% url 'post_detail' post.slug %}"><button id="explore-btn" aria-label="Open post">Explore</button></a>
+                <!-- <a href="{% url 'post_detail' post.slug %}"><button class="explore-btn"
+                        aria-label="Open post">Explore</button></a> -->
+                <a href="{% url 'post_detail' post.slug %}" class="explore-link" aria-label="Open post">Explore</a>
             </div>
         </div>
         {% endif %}
@@ -114,7 +116,7 @@
                         {{ post.excerpt}}
                     </p>
                 </a>
-                <a href="{% url 'post_detail' post.slug %}"><button id="explore-btn" aria-label="Open post">Explore</button></a>
+                <a href="{% url 'post_detail' post.slug %}" class="explore-link" aria-label="Open post">Explore</a>
             </div>
         </div>
         {% endif %}
@@ -146,7 +148,7 @@
                         {{ post.excerpt}}
                     </p>
                 </a>
-                <a href="{% url 'post_detail' post.slug %}"><button id="explore-btn" aria-label="Open post">Explore</button></a>
+                <a href="{% url 'post_detail' post.slug %}" class="explore-link" aria-label="Open post">Explore</a>
             </div>
         </div>
         {% endif %}
@@ -178,7 +180,7 @@
                         {{ post.excerpt}}
                     </p>
                 </a>
-                <a href="{% url 'post_detail' post.slug %}"><button id="explore-btn" aria-label="Open post">Explore</button></a>
+                <a href="{% url 'post_detail' post.slug %}" class="explore-link" aria-label="Open post">Explore</a>
             </div>
         </div>
         {% endif %}

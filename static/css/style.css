@@ -260,7 +260,7 @@ main {
     color: #3f4244
 }
 
-#explore-btn,
+.explore-btn,
 #login-btn,
 #signout-btn,
 #signup-btn,
@@ -275,7 +275,22 @@ main {
     text-align: center;
 }
 
-#explore-btn:hover,
+.cat-content-text-wrapper .explore-link {
+    display: inline-block;
+    padding: 5px 32px;
+    background-color: #3f4244;
+    color: #f4f1de;
+    font-size: 120%;
+    text-decoration: none;
+    border-radius: 22px;
+    margin: 0 auto;
+    border: none;
+    text-align: center;
+    font-weight: 400;
+}
+
+.explore-link:hover,
+.explore-btn:hover,
 #login-btn:hover,
 #signout-btn:hover,
 #signup-btn:hover,
@@ -419,7 +434,7 @@ textarea {
     display: flex;
     justify-content: space-evenly;
 }
- 
+
 .comment-count-wrapper {
     padding: 20px 12.5%;
 }
@@ -430,19 +445,19 @@ textarea {
 }
 
 .comment-body {
-    max-width:600px;
+    max-width: 600px;
 }
 
 #comment-info {
-    margin-bottom:0;
+    margin-bottom: 0;
 }
 
 #comment-form-container {
-    max-width:450px;
+    max-width: 450px;
 }
 
 label[for="id_body"] {
-    display:none;
+    display: none;
 }
 
 .approval {
@@ -500,12 +515,11 @@ label[for="id_body"] {
         background-color: rgba(86, 117, 104, 0.5);
     }
 
-    #explore-btn {
+    .explore-btn,
+    .cat-content-text-wrapper .explore-link {
         margin-bottom: 30px;
     }
 }
-
-
 
 /* Media query: 576px and up (for larger mobile phones or for mobiles in landscape mode) */
 @media screen and (min-width: 576px) {
@@ -685,7 +699,7 @@ label[for="id_body"] {
         margin-top: 16px;
     }
 
-    
+
 }
 
 /* Media query: 1440px and up (larger screens/desktops) */
