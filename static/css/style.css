@@ -362,7 +362,8 @@ select,
 #form-overlay input:hover,
 textarea:hover,
 #id_login:hover,
-#id_password:hover {
+#id_password:hover,
+select:hover {
     border-color: #3f4244;
 }
 

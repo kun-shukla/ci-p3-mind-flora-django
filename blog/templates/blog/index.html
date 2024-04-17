@@ -199,7 +199,23 @@
     </video>
     <form id="form-overlay" method="POST" aria-label="share a discovery">
         <h2>Share a Discovery</h2>
-        {{ share_form }}
+        {{ share_form.non_field_errors }}
+        <!-- Render each field manually -->
+        <label for="{{ share_form.full_Name.id_for_label }}">Full Name</label>
+        {{ share_form.full_Name }}
+        {{ share_form.full_Name.errors }}
+        <label for="{{ share_form.email.id_for_label }}">Email</label>
+        {{ share_form.email }}
+        {{ share_form.email.errors }}
+        <label for="{{ share_form.category.id_for_label }}">Category</label>
+        {{ share_form.category }}
+        {{ share_form.category.errors }}
+        <label for="{{ share_form.destination.id_for_label }}">Destination</label>
+        {{ share_form.destination }}
+        {{ share_form.destination.errors }}
+        <label for="{{ share_form.description.id_for_label }}">Description</label>
+        {{ share_form.description }}
+        {{ share_form.description.errors }}
         {% csrf_token %}
         <button type="submit" id="share-btn" aria-label="Submit Form">Share</button>
     </form>
