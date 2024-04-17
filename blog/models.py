@@ -81,7 +81,7 @@ class ShareDiscoveryFormBgVid(models.Model):
 class UserRecommendedDestination(models.Model):
     full_Name = models.CharField(max_length=200)
     email = models.EmailField()
-    category = models.CharField(max_length=50)
+    category = models.CharField()
     destination = models.CharField(max_length=200)
     description = models.TextField()
     read = models.BooleanField(default=False)

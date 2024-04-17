@@ -11,7 +11,7 @@ class ShareDiscoveryForm(forms.ModelForm):
         widgets = {
             'full_Name': forms.TextInput(attrs={'placeholder': 'Full Name'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
-            'category': forms.Select(attrs={'placeholder': 'Select Category'}, choices=(
+            'category': forms.Select(choices=(
                 ('', 'Select Category'),
                 ('Mountains', 'Mountains'),
                 ('Coasts', 'Coasts'),
