@@ -4,10 +4,11 @@ from django.http import HttpResponseRedirect
 from .forms import ShareDiscoveryForm, CommentForm
 from .models import About, AboutSectionNavImage, Post, ShareDiscoveryFormBgVid, Comment
 
+
 def post_list(request):
     """
-    Displays all 'Published' instances of :model:`blog.Post`. Renders the most recent 'About' section information as well as the circular nav images of this section. Also renders the 'Form' section bg video and allows user content submissions via the 'Share a Discovery' form
-.
+    Displays all 'Published' instances of :model:`blog.Post`. Renders the most recent 'About' section information as well as the circular nav images of this section. Also renders the 'Form' section bg video and allows user content submissions via the 'Share a Discovery' form.
+
     **Context**
 
     ``post``
@@ -33,7 +34,6 @@ def post_list(request):
             share_form.save()
             messages.add_message(request, messages.SUCCESS, "Thank you for your contribution! We endeavour to review and respond within 3 working days.")
 
-
     share_form = ShareDiscoveryForm()
 
     return render(
@@ -43,10 +43,11 @@ def post_list(request):
             "post_list": post_list,
             "about": about,
             "about_sec_imgs": about_sec_imgs,
-            "share_form_bg_vid": share_form_bg_vid, 
+            "share_form_bg_vid": share_form_bg_vid,
             "share_form": share_form,
         },
     )
+
 
 def post_detail(request, slug):
     """
@@ -83,20 +84,21 @@ def post_detail(request, slug):
             messages.add_message(
                 request, messages.SUCCESS,
                 'Comment submitted and awaiting approval'
-        )
-       
+            )
+
     comment_form = CommentForm()
 
     return render(
         request,
         "blog/post_detail.html",
         {
-        "post": post,
-        "comments": comments,
-        "comment_count": comment_count,
-        "comment_form": comment_form,
+            "post": post,
+            "comments": comments,
+            "comment_count": comment_count,
+            "comment_form": comment_form,
          },
     )
+
 
 def comment_edit(request, slug, comment_id):
     """
@@ -129,6 +131,7 @@ def comment_edit(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
 def comment_delete(request, slug, comment_id):
     """
     Delete an individual comment.
@@ -151,10 +154,3 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-
-
-
-
-
-
-
