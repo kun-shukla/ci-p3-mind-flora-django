@@ -449,7 +449,7 @@ textarea {
     max-width: 600px;
 }
 
-#comment-info {
+.comment-info {
     margin-bottom: 0;
 }
 

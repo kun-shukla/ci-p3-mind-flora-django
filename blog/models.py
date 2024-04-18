@@ -1,10 +1,10 @@
+from cloudinary.models import CloudinaryField
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
-# Create your models here.
 class Post(models.Model):
     """
     Stores a single blog post entry related to :model:`auth.User`.
@@ -61,7 +61,7 @@ class About(models.Model):
 
 class AboutSectionNavImage(models.Model):
     """
-    Stores a single About section (circular) nav image/title
+    Stores a single About section (circular) nav image/title using a Cloudinary image field 
     """
     title = models.CharField(max_length=50)
     featured_image = CloudinaryField('image', default='placeholder')
@@ -71,6 +71,9 @@ class AboutSectionNavImage(models.Model):
         return f"{self.title}"
 
 class ShareDiscoveryFormBgVid(models.Model):
+    """
+    Stores a single Form section background video using a Cloudinary video field
+    """
     title = models.CharField(max_length=50)
     featured_video = CloudinaryField('video', resource_type='video')
 
@@ -79,6 +82,9 @@ class ShareDiscoveryFormBgVid(models.Model):
    
 
 class UserRecommendedDestination(models.Model):
+    """
+    Stores a single user-recommended destination message
+    """
     full_Name = models.CharField(max_length=200)
     email = models.EmailField()
     category = models.CharField()

@@ -16,11 +16,16 @@ class PostAdmin(SummernoteModelAdmin):
 
 @admin.register(About)
 class AboutAdmin(SummernoteModelAdmin):
+    """
+    Adds rich-text editing of :model:`blog.About` 'content' field in admin
+    """
     summernote_fields = ('content',)
 
 @admin.register(UserRecommendedDestination)
 class UserRecommendedDestinationAdmin(admin.ModelAdmin):
-
+    """
+    Lists fields for display in admin for :model:`blog.UserRecommendedDestination`. 
+    """
     list_display = ('destination', 'read',)
 
 # Register your models here.

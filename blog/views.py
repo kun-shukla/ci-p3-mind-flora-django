@@ -1,13 +1,28 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import About, AboutSectionNavImage, Post, ShareDiscoveryFormBgVid, Comment
 from .forms import ShareDiscoveryForm, CommentForm
-
-
-# Create your views here.
+from .models import About, AboutSectionNavImage, Post, ShareDiscoveryFormBgVid, Comment
 
 def post_list(request):
+    """
+    Displays all 'Published' instances of :model:`blog.Post`. Renders the most recent 'About' section information as well as the circular nav images of this section. Also renders the 'Form' section bg video and allows user content submissions via the 'Share a Discovery' form
+.
+    **Context**
+
+    ``post``
+        An instance of :model:`blog.Post`.
+    ``comments``
+        All approved comments related to the post
+    ``comment_count``
+        A count of approved comments related to the post.
+    ``comment_form``
+        An instance of :form:`blog.CommentForm`.
+
+    **Template:**
+
+    :template:`blog/post_detail.html`
+    """
     post_list = Post.objects.filter(status=1)
     about_sec_imgs = AboutSectionNavImage.objects.all().order_by('created_on')
     about = About.objects.all().order_by('-updated_on').first()
@@ -41,6 +56,12 @@ def post_detail(request, slug):
 
     ``post``
         An instance of :model:`blog.Post`.
+    ``comments``
+        All approved comments related to the post
+    ``comment_count``
+        A count of approved comments related to the post.
+    ``comment_form``
+        An instance of :form:`blog.CommentForm`.
 
     **Template:**
 
@@ -79,7 +100,16 @@ def post_detail(request, slug):
 
 def comment_edit(request, slug, comment_id):
     """
-    view to edit comments
+    Display an individual comment for edit.
+
+    **Context**
+
+    ``post``
+        An instance of :model:`blog.Post`
+    ``comment``
+        A single comment related to the post
+    ``comment_form``
+        An instance of :form:`blog.CommentForm`.
     """
     if request.method == "POST":
 
@@ -101,7 +131,14 @@ def comment_edit(request, slug, comment_id):
 
 def comment_delete(request, slug, comment_id):
     """
-    view to delete comment
+    Delete an individual comment.
+
+    **Context**
+
+    ``post``
+        An instance of :model:`blog.Post`
+    ``comment``
+        A single comment related to the post.
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
