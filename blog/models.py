@@ -87,7 +87,7 @@ class UserRecommendedDestination(models.Model):
     """
     full_Name = models.CharField(max_length=200)
     email = models.EmailField()
-    category = models.CharField()
+    category = models.TextField()
     destination = models.CharField(max_length=200)
     description = models.TextField()
     read = models.BooleanField(default=False)
