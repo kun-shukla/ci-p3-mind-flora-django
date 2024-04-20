@@ -4,12 +4,19 @@ from django.contrib.auth.models import User
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
+CATEGORY_CHOICES = (
+        (0, "Mountains"),
+        (1, "Coasts"),
+        (2, "Lakes"),
+        (3, "Forests"),
+        # Add more categories as needed
+)
 
 class Post(models.Model):
     """
     Stores a single blog post entry related to :model:`auth.User`.
     """
-    category = models.CharField(max_length=50)
+    category = models.IntegerField(choices=CATEGORY_CHOICES)
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(

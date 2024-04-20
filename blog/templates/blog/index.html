@@ -65,7 +65,7 @@
         </div>
         <!-- Use a combination of 'flex' and custom media queries to make layout responsive across various screen sizes (repeated across all categories)-->
         {% for post in post_list %}
-        {% if "Mountains" in post.category %}
+        {% if post.get_category_display == "Mountains" %}
         <div class="cat-content-flex-container">
             <div class="cat-content-img-wrapper">
                 {% if "placeholder" in post.featured_image.url %}
@@ -99,7 +99,7 @@
         </div>
         <!-- Use a combination of 'flex' and custom media queries to make layout responsive across various screen sizes (repeated across all categories)-->
         {% for post in post_list %}
-        {% if "Coasts" in post.category %}
+        {% if post.get_category_display == "Coasts" %}
         <div class="cat-content-flex-container">
             <div class="cat-content-img-wrapper">
                 {% if "placeholder" in post.featured_image.url %}
@@ -131,7 +131,7 @@
         </div>
         <!-- Use a combination of 'flex' and custom media queries to make layout responsive across various screen sizes (repeated across all categories)-->
         {% for post in post_list %}
-        {% if "Lakes" in post.category %}
+        {% if post.get_category_display == "Lakes" %}
         <div class="cat-content-flex-container">
             <div class="cat-content-img-wrapper">
                 {% if "placeholder" in post.featured_image.url %}
@@ -163,7 +163,7 @@
         </div>
         <!-- Use a combination of 'flex' and custom media queries to make layout responsive across various screen sizes (repeated across all categories)-->
         {% for post in post_list %}
-        {% if "Forests" in post.category %}
+        {% if post.get_category_display == "Forests" %}
         <div class="cat-content-flex-container">
             <div class="cat-content-img-wrapper">
                 {% if "placeholder" in post.featured_image.url %}
