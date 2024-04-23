@@ -20,7 +20,19 @@ class ShareDiscoveryForm(forms.ModelForm):
             )),
             'destination': forms.TextInput(attrs={'placeholder': 'Destination'}),
             'description': forms.Textarea(attrs={'placeholder': 'Share a brief description of your experience'}),
-        }    
+        }  
+
+    def clean_category(self):
+        category = self.cleaned_data.get('category')
+        valid_choices = [choice[0] for choice in self.Meta.widgets['category'].choices]
+        if category == 'Select Category':
+            raise forms.ValidationError("Please select a valid category.")
+        elif category not in valid_choices:
+            raise forms.ValidationError("Invalid category selected.")
+        return category  
+
+
+
 
 class CommentForm(forms.ModelForm):
     """
