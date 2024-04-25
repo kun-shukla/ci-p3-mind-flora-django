@@ -42,3 +42,33 @@ class TestBlogViews(TestCase):
         self.assertIn(b'About navigation title', response.content)
         self.assertIsInstance(response.context['share_form'], ShareDiscoveryForm)
 
+    def test_successful_comment_submission(self):
+        """Test for posting a comment on a post"""
+        self.client.login(
+            username="myUsername", password="myPassword")
+        post_data = {
+            'body': 'This is a test comment.'
+        }
+        response = self.client.post(reverse(
+            'post_detail', args=['blog-title']), post_data)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(
+            b'Comment submitted and awaiting approval',
+            response.content
+        )
+
+    def test_successful_travel_recommendation_submission(self):
+        """Test for a user recommending a travel destination via the 'Share a Discovery' form """
+        post_data = {
+            'full_Name': 'Joe Bloggs',
+            'email': 'joe.bloggs@test.com',
+            'category': 'Coasts',
+            'destination': 'This is a test destination',
+            'description': 'This is a test description'
+        }
+        response = self.client.post(reverse('home'), post_data)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(
+            b'Thank you for your contribution! We endeavour to review and respond within 3 working days.',
+            response.content
+        )
