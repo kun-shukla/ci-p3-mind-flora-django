@@ -469,6 +469,26 @@ label[for="id_body"] {
     color: rgb(172, 175, 175);
 }
 
+.btn-edit, .btn-delete {
+    margin-bottom: 1rem;
+    border: 1px solid #3f4244;
+    border-radius: 22px;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    background-color: #f4f1de;
+    color: #3f4244;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+    background-color: #3f4244;
+    color: #f4f1de;
+}
+
+
+
+
+
+
 /* End of Post detail comments section */
 
 .logged-in-msg {
@@ -627,7 +647,7 @@ label[for="id_body"] {
     }
 
     .cat-content-img-wrapper {
-        align-self: center;
+        align-self: start;
     }
 
     .cat-content-wrapper .col-12 {
