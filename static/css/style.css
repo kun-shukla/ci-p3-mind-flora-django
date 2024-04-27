@@ -126,7 +126,7 @@ header a:hover {
 #menu li {
     letter-spacing: 2px;
     display: inline;
-    font-size: 90%;
+    font-size: 50%;
     padding-right: 10px;
 }
 
@@ -469,7 +469,8 @@ label[for="id_body"] {
     color: rgb(172, 175, 175);
 }
 
-.btn-edit, .btn-delete {
+.btn-edit,
+.btn-delete {
     margin-bottom: 1rem;
     border: 1px solid #3f4244;
     border-radius: 22px;
@@ -479,15 +480,11 @@ label[for="id_body"] {
     color: #3f4244;
 }
 
-.btn-edit:hover, .btn-delete:hover {
+.btn-edit:hover,
+.btn-delete:hover {
     background-color: #3f4244;
     color: #f4f1de;
 }
-
-
-
-
-
 
 /* End of Post detail comments section */
 
@@ -542,6 +539,27 @@ label[for="id_body"] {
     }
 }
 
+/* Media query: 354px and up (smaller mobile phones) */
+@media screen and (min-width: 354px) {
+    #menu li {
+        font-size: 60%;
+    }
+}
+
+/* Media query: 400px and up (smaller mobile phones) */
+@media screen and (min-width: 400px) {
+    #menu li {
+        font-size: 70%;
+    }
+}
+
+/* Media query: 500px and up (smaller mobile phones) */
+@media screen and (min-width: 500px) {
+    #menu li {
+        font-size: 80%;
+    }
+}
+
 /* Media query: 576px and up (for larger mobile phones or for mobiles in landscape mode) */
 @media screen and (min-width: 576px) {
     html {
@@ -558,6 +576,10 @@ label[for="id_body"] {
         margin-bottom: 0;
     }
 
+    #menu li {
+        font-size: 70%;
+    }
+
     main {
         margin-top: 57px;
     }
@@ -566,6 +588,14 @@ label[for="id_body"] {
     #form-overlay {
         max-width: 450px;
         margin-bottom: 30px;
+    }
+}
+
+/* Media query: 650px and up (for larger mobile phones or for mobiles in landscape mode) */
+@media screen and (min-width: 650px) {
+
+    #menu li {
+        font-size: 80%;
     }
 }
 
