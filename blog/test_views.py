@@ -24,7 +24,7 @@ class TestBlogViews(TestCase):
         self.aboutNav.save()
 
     def test_render_post_detail_page_with_comment_form(self):
-        """Verifies get request for 'post detail' page containing a comment form"""
+        """Verifies GET request for 'post detail' page containing a comment form"""
         response = self.client.get(reverse(
             'post_detail', args=['blog-title']))
         self.assertEqual(response.status_code, 200)
@@ -34,7 +34,7 @@ class TestBlogViews(TestCase):
             response.context['comment_form'], CommentForm)
 
     def test_render_index_page_with_share_a_discovery_form(self):
-        """Verifies get request for index page containing a 'Share a Discovery' form"""
+        """Verifies GET request for index page containing a 'Share a Discovery' form"""
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Blog title', response.content)
