@@ -106,21 +106,19 @@ The following Entity Relationship Diagram (ERD) illustrates the schema.
 ![Categories Content Section Image](assets/docs/readme-images/cats-content-sec.webp)
 
 - This section contains content relating to each of the four nature categories i.e. - Mountains, Coasts, Lakes and Forests.
-- Each category has one recommended place to visit. The aim is to continually expand the content of this section both through curated as well as user generated content via a 'Share a Discovery' form section
-- The alternating background colors provide a pleasing look and feel to this section. It is fully responsive and reduces to a single column layout for mobile screens.
+- Each category currently comprises of two posts. The aim is to continually expand the content of this section both through curated as well as user suggested content, submitted via the 'Share a Discovery' form.
+- Each category section has an alternating background color providing a pleasing look and feel to this section. It is fully responsive and reduces to a double and single column layout for tablet/mobile screens respectively.
 
 ### 'Share a Discovery' Form Section
 
 ![Form section image](assets/docs/readme-images/form-sec.webp)
 
-- The form section comprises of a background video of falling autumn leaves. The file size and type have been optimised for web whilst preserving quality.
+- The form section comprises of a background video of falling autumn leaves. The file size and type have been optimised for web whilst preserving quality. The video is hosted on the Cloudinary media hosting service.
 - The form overlays the background with a translucent effect so that the 'falling leaves' can still be seen despite the overlay.
 - the overlay although translucent does not get distracted by the video background which auto plays in the background, silently and on loop.
 - The form includes data validation features such as 'required' fields and only accepts an email format in the respective input field. If any field is left blank and the user attempts to submit the form a browser prompt will notify the user that an input is required.
-- On clicking the 'Share' button and passing data validation the entered data then gets 'stored' via a dummy link provided by Code Institute (the link opens in a new tab) - this is purely for testing purposes.
 - The form includes UX enhancing visual feedback features like on hover/focus custom styling i.e. when a input field is hovered over or selected with the cursor, a black outline appears.
-
-- This section encourages users to share their own content which will then be added to the relevant Category content section of the webpage. This feature will eventually form the backbone of content generation on the website.
+- This section encourages users to share and suggest content for the website. After reviewal/additional input from site admins, this content will potentially be used as the basis for adding content to the Categories Content section.
 
 ### Footer
 
@@ -133,7 +131,7 @@ The following Entity Relationship Diagram (ERD) illustrates the schema.
 ### Potential Future developments
 
 - Based on user feedback a mobile 'burger' menu may be implemented
-- Enhanced form features such as ability for users to upload and share an image of destination and to be able to sign up to a newsletter.
+- Enhanced form features such as ability for users to upload and share an image of their recommended destination and to be able to sign up to a newsletter.
 - Creation of an ‘Explore’ section for users to locate Nature walks via an embedded map feature.
 - As the pool of user-generated content grows a 'Search' feature will be introduced to effectively filter through the 'library' of content.
 - In time the site will provide a feature to enable users to organise 'meetups' to explore the therapeutic benefits of nature as a group of like-minded fellow travel buddies. This will further enhance the benefit to mental wellbeing by combining in a social aspect as well.
@@ -174,7 +172,7 @@ The following Entity Relationship Diagram (ERD) illustrates the schema.
 ![login page](assets/docs/readme-images/login-page.webp)
 ![leave a comment](assets/docs/readme-images/leave-comment.webp)
 
-- On clicking the 'Login' link in the nav bar, registered users can login with thier username and password
+- On clicking the 'Login' link in the nav bar, registered users can login with their username and password
 - Once logged in, users can then leave a comment on a selected post on the 'post details' page in the 'Leave a comment' section
 - Once a comment is submitted by the user it appears in the 'Comments' section (visible only to the commenter until it is approved by an admin)
 
@@ -228,7 +226,7 @@ The following Entity Relationship Diagram (ERD) illustrates the schema.
 - The 'User recommended destinations' table has a 'read' checkbox field. This assists admins to review user submitted content by indicating how many messages are pending review.
 
 ### Automated testing
-Django's test library was used to carry out a range of unit tests to check and verify expected performance of key indivdual components of the app's functionality. These unit tests (located in the *'test_views.py'* and *'test_forms.py'* files under the 'blog' app) specifically checked the following:
+Django's test library was used to carry out a range of unit tests to check and verify expected performance of key individual components of the app's functionality. These unit tests (located in the *'test_views.py'* and *'test_forms.py'* files under the 'blog' app) specifically checked the following:
 - GET request for the 'post detail' page (containing the comment form)
 - GET request for the landing page containing the 'Share a Discovery' form
 - POST request for posting a comment on a blog post to the database
@@ -238,12 +236,23 @@ Django's test library was used to carry out a range of unit tests to check and v
 ### Validator Testing
 
 - #### HTML
-  - No errors were returned when passing through the official W3C Markup Validator
+  - No errors were returned when passing the website's URI through the official W3C Markup Validator
     ![W3C Markup Validator image](assets/docs/readme-images/validator-html.webp)
-- #### CSS
+  - No errors when passing source code pertaining to authenticated users through the official W3C Markup Validator
+    ![W3C Markup Validator image for logged in users](assets/docs/readme-images/validation-for-logged-in-users.webp)
 
+- #### CSS
   - No errors were found when passing through the official W3C CSS Validator
     ![W3C CSS Validator image](assets/docs/readme-images/valid-css.webp)
+
+- #### Javascript
+  - No errors were found when passing JS code through the official JSHint Javascript Validator. The following metrics were generated:
+    ![JSHint Javascript Validator](assets/docs/readme-images/jshint-validator.webp)
+
+- #### Python PEP 8 Standards
+  The PEP 8 standards were adhered to when developing with Python, such as:
+  - Grouping library imports appropriately
+  - Adding docstrings to all functions and classes to indicate their purpose
 
 - #### Accessibility
 
@@ -278,7 +287,7 @@ Django's test library was used to carry out a range of unit tests to check and v
 
 ### Known bugs
 
-Issue observed while using the deployed site on iOS Chrome/Safari browsers, whereby the form section's background video does not immediately autoplay (despite being assigned the 'autoplay'/'mute' attributes). However, on visiting other sections and then revisiting the form section via the navbar, the video does usually start to play (though this can be erratic particulary on Chrome it seems).
+Issue observed while using the deployed site on iOS Chrome/Safari browsers, whereby the form section's background video does not immediately autoplay (despite being assigned the 'autoplay'/'mute' attributes). However, on visiting other sections and then revisiting the form section via the navbar, the video does usually start to play (though this can be erratic particularly on Chrome it seems).
 
 ## Languages Used
 
